@@ -7,7 +7,7 @@ name = 'Amber'
 version = '16'
 cudaversion = '8.0'
 patversion = '6.5.1'
-versionsuffix = '-cuda-%s-pat-%s' % (cudaversion, patversion)
+versionsuffix = '-cuda-%s-pat-%s-nogpu' % (cudaversion, patversion)
 
 homepage = 'http://ambermd.org/'
 description = 'Assisted Model Building with Energy Refinement'
@@ -26,7 +26,7 @@ builddependencies = [
     ('cray-hdf5/1.10.0.3', EXTERNAL_MODULE),
     ('cray-netcdf/4.4.1.1.3', EXTERNAL_MODULE),
     ('flex', '2.6.4'),
-    ('perftools-lite-gpu', EXTERNAL_MODULE),
+    ('perftools-lite', EXTERNAL_MODULE),
 ]
 
 buildininstalldir = True
