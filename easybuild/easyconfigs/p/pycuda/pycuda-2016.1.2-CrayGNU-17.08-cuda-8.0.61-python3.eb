@@ -1,0 +1,40 @@
+easyblock = "pycuda"
+
+name = 'pycuda'
+version = '2016.1.2'
+
+py_maj_ver = '3'
+py_min_ver = '5'
+py_rev_ver = '2'
+cuda_maj_ver = '8.0'
+cuda_min_ver = '61'
+cuda_rev_ver = '_2.4.3-6.0.4.0_3.1__gb475d12'
+
+cuda_ver = "%s.%s%s" % (cuda_maj_ver, cuda_min_ver, cuda_rev_ver)
+ver_suffix_cuda = '-cuda-%s.%s' % (cuda_maj_ver, cuda_min_ver)
+ver_suffix_py = '-python%s' % (py_maj_ver)
+versionsuffix = '%s%s' % (ver_suffix_cuda, ver_suffix_py)
+
+homepage = 'https://pypi.python.org/pypi/pycuda'
+description = """Python wrapper for Nvidia CUDA. PyCUDA lets you access Nvidia CUDA parallel computation API from Python."""
+
+toolchain = {'name': 'CrayGNU', 'version': '17.08'}
+toolchainopts = {'usempi': True}
+
+source_urls = [PYPI_SOURCE]
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [
+    ('cray-python/17.06.1', EXTERNAL_MODULE),
+    ('cudatoolkit/%s' % cuda_ver, EXTERNAL_MODULE),
+]
+
+modextravars = { 'LD_LIBRARY_PATH':'$::env(CRAY_LD_LIBRARY_PATH):$::env(LD_LIBRARY_PATH)'}
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python%(py_maj_ver)s.%(py_min_ver)s/site-packages/%%(name)s-%%(version)s-py%(py_maj_ver)s-linux-x86_64.egg' % {'py_maj_ver': py_maj_ver, 'py_min_ver': py_min_ver}],
+}
+
+moduleclass = 'data'
+
