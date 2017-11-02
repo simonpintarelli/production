@@ -15,7 +15,7 @@ installopts = 'sub-QGLViewer sub-designerPlugin'
 
 sources = ['libQGLViewer-%(version)s.tar.gz']
 
-builddependencies = [('Qt', '4.8.5', '-GLib-2.44.0')]
+builddependencies = [('Qt', '4.8.7')]
 
 sanity_check_paths={
     'files': ['lib/libQGLViewer.prl', 'lib/libQGLViewer.so', 'lib/libQGLViewer.so.2', 'lib/libQGLViewer.so.2.5', 'lib/libQGLViewer.so.2.5.1'],
