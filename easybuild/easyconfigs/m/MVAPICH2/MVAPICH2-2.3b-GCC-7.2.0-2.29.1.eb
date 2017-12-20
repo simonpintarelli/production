@@ -1,0 +1,37 @@
+# contributed by Luca marsella (CSCS)
+name = 'MVAPICH2'
+version = '2.3b'
+
+homepage = 'http://mvapich.cse.ohio-state.edu/overview/mvapich2/'
+description = """OSU MVAPICH2 2.3b (08/10/17), integrated and ABI compatible with MPICH-3.2"""
+
+toolchain = {'name': 'GCC', 'version': '7.2-2.29.1'}
+
+source_urls = ['http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/']
+sources = [SOURCELOWER_TAR_GZ]
+checksums = ['fce5f21be37c1decbae5fd6c6a46bb5b']
+
+configopts = [
+"--enable-threads=multiple \
+--enable-rdma-cm \
+--enable-smpcoll \
+--disable-xrc \
+--with-device=ch3:mrail \
+--enable-mcast \
+--enable-g=dbg \
+--enable-debuginfo \
+--with-cluster-size=level"
+]
+
+withhwloc = 'True'
+
+#builddependencies = [ ('Bison', '3.0.4', '', True) ]
+builddependencies = [ ('Bison', '3.0.4') ]
+
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in ['mpicc', 'mpic++', 'mpif90']] +
+             ['lib/lib%s' % y for x in ['mpi', 'mpicxx', 'mpifort'] for y in ['%s.so'%x, '%s.a'%x]],
+    'dirs': ['include']
+}
+
+moduleclass = 'mpi'
