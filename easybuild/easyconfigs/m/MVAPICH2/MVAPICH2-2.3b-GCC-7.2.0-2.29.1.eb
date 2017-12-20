@@ -5,7 +5,7 @@ version = '2.3b'
 homepage = 'http://mvapich.cse.ohio-state.edu/overview/mvapich2/'
 description = """OSU MVAPICH2 2.3b (08/10/17), integrated and ABI compatible with MPICH-3.2"""
 
-toolchain = {'name': 'GCC', 'version': '7.2-2.29.1'}
+toolchain = {'name': 'GCC', 'version': '7.2.0-2.29.1'}
 
 source_urls = ['http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/']
 sources = [SOURCELOWER_TAR_GZ]
@@ -25,8 +25,7 @@ configopts = [
 
 withhwloc = 'True'
 
-#builddependencies = [ ('Bison', '3.0.4', '', True) ]
-builddependencies = [ ('Bison', '3.0.4') ]
+builddependencies = [ ('Bison', '3.0.4', '', True) ]
 
 sanity_check_paths = {
     'files': ['bin/%s' % x for x in ['mpicc', 'mpic++', 'mpif90']] +

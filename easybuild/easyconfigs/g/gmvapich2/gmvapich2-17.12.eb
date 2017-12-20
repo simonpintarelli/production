@@ -1,0 +1,24 @@
+# contributed by Luca Marsella (CSCS)
+easyblock = "Toolchain"
+
+name = 'gmvapich2'
+version = '17.12'
+
+homepage = '(none)'
+description = """GNU Compiler Collection (GCC) based compiler toolchain,
+ including MVAPICH2 for MPI support."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+compname = 'GCC'
+compver = '7.2.0-2.29.1'
+comp = (compname, compver)
+
+# compiler toolchain dependencies
+dependencies = [
+    comp,
+#    ('MVAPICH2', '2.2', '', ('GCC', '5.3.0-binutils-2.25-limic') ),
+    ('mpi/mvapich2-2.0-x86_64', EXTERNAL_MODULE),
+]
+
+moduleclass = 'toolchain'
