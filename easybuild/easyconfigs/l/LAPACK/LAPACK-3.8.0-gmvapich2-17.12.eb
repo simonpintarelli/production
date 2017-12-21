@@ -1,0 +1,16 @@
+# contributed by Luca Marsella (CSCS)
+name = 'LAPACK'
+version = "3.8.0"
+
+homepage = 'http://www.netlib.org/lapack/'
+description = """LAPACK is written in Fortran90 and provides routines for solving systems of
+ simultaneous linear equations, least-squares solutions of linear systems of equations, eigenvalue
+ problems, and singular value problems."""
+
+toolchain = {'name': 'gmvapich2', 'version': '17.12'}
+toolchainopts = {'pic': True}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [homepage]
+
+moduleclass = 'numlib'
