@@ -17,15 +17,17 @@ configopts = [
 --enable-smpcoll \
 --disable-xrc \
 --with-device=ch3:mrail \
---enable-mcast \
+--disable-mcast \
 --enable-g=dbg \
 --enable-debuginfo \
---with-cluster-size=level\
+--with-cluster-size=level"
 ]
 
 withhwloc = 'True'
 
 builddependencies = [ ('Bison', '3.0.4', '', True) ]
+
+dependencies = [ ('rdma-core', '16', '', True) ]
 
 sanity_check_paths = {
     'files': ['bin/%s' % x for x in ['mpicc', 'mpic++', 'mpif90']] +
