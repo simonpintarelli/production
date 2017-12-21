@@ -1,0 +1,40 @@
+# contributed by Guilherme Peretti Pezzi and Luca Marsella (CSCS)
+easyblock = "ConfigureMake"
+
+name = 'QuantumESPRESSO'
+version = '6.2.1'
+
+homepage = 'http://www.quantum-espresso.org/'
+description = """Quantum ESPRESSO  is an integrated suite of computer codes
+ for electronic-structure calculations and materials modeling at the nanoscale.
+ It is based on density-functional theory, plane waves, and pseudopotentials
+  (both norm-conserving and ultrasoft)."""
+
+toolchain = {'name': 'gmvapich2', 'version': '17.12'}
+toolchainopts = {'usempi': True, 'openmp': True}
+
+sources = ['qe-%(version)s.tar.gz']
+source_urls = ['http://www.qe-forge.org/gf/download/frsrelease/247/1132/']
+
+builddependencies = [
+    ('FFTW', '3.3.7'),
+    ('LAPACK', '3.8.0'),
+    ('ScaLAPACK', '2.0.2')
+]
+
+preconfigopts = ' BLAS_LIBS="$EBROOTOPENBLAS/lib/libblas.a" && ' 
+preconfigopts += ' LAPACK_LIBS="$EBROOTLAPACK/lib/liblapack.a" && ' 
+preconfigopts += ' SCALAPACK_LIBS="EBROOTSCALAPACK/lib/libscalapack.a && '
+configopts = ' --enable-openmp --enable-parallel --with-scalapack '
+
+prebuildopts = ' cat make.inc && '
+buildopts = 'all epw'
+# a single make process is required, since parallel builds fail
+maxparallel = 1
+
+sanity_check_paths = {
+      'files': ['bin/pw.x', 'bin/cp.x'],
+      'dirs': ['']
+}
+
+moduleclass = 'chem'
