@@ -1,0 +1,28 @@
+# contributed by Luca Marsella (CSCS)
+easyblock = 'CMakeMake'
+
+name = 'rdma-core'
+version = '16'
+
+homepage = 'https://github.com/linux-rdma'
+description = "RDMA core userspace libraries and daemons"
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+builddependencies = [('CMake', '3.10.1')]
+
+dependencies = [
+    ('libnl', '3.4.0'),
+]
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/linux-rdma/rdma-core/archive']
+
+separate_build_dir = True
+
+sanity_check_paths={
+    'files': ['include/infiniband/ib.h', 'include/infiniband/verbs.h', 'lib64/libibverbs.so'],
+    'dirs': ['bin', 'include/infiniband', 'include/rdma', 'lib', 'lib64'],
+}
+
+moduleclass = 'lib'
