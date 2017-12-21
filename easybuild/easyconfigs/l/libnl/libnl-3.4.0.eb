@@ -1,0 +1,23 @@
+# contributed by Luca Marsella (CSCS)
+easyblock = 'ConfigureMake'
+
+name = 'libnl'
+version = '3.4.0'
+
+homepage = 'https://www.infradead.org/~tgr/libnl/doc/core.html'
+description = """Netlink Library (libnl) contains the fundamentals required to communicate over netlink sockets"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['https://github.com/thom311/libnl/releases/download/libnl3_4_0']
+
+# need to take care of $CFLAGS ourselves with dummy toolchain
+buildopts = 'CFLAGS="-O2 -fPIC"'
+
+sanity_check_paths = {
+    'files': ['lib/libnl-3.so', 'lib/libnl-cli-3.so', 'lib/libnl-genl-3.so', 'lib/libnl-idiag-3.so', 'lib/libnl-nf-3.so', 'lib/libnl-route-3.so', 'lib/libnl-xfrm-3.so'],
+    'dirs': ['include/libnl3/netlink', 'lib'],
+}
+
+moduleclass = 'lib'
