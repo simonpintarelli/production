@@ -17,14 +17,13 @@ sources = ['qe-%(version)s.tar.gz']
 source_urls = ['http://www.qe-forge.org/gf/download/frsrelease/247/1132/']
 
 builddependencies = [
-    ('FFTW', '3.3.7'),
     ('LAPACK', '3.8.0'),
-    ('ScaLAPACK', '2.0.2')
 ]
 
-preconfigopts = ' BLAS_LIBS="$EBROOTOPENBLAS/lib/libblas.a" && ' 
+preconfigopts = ' FFT_LIBS="$EBROOTFFTW/lib/libfftw3f.a" '
+preconfigopts += ' BLAS_LIBS="$EBROOTOPENBLAS/lib/libopenblas.a" && ' 
 preconfigopts += ' LAPACK_LIBS="$EBROOTLAPACK/lib/liblapack.a" && ' 
-preconfigopts += ' SCALAPACK_LIBS="EBROOTSCALAPACK/lib/libscalapack.a && '
+preconfigopts += ' SCALAPACK_LIBS="EBROOTSCALAPACK/lib/libscalapack.a" && '
 configopts = ' --enable-openmp --enable-parallel --with-scalapack '
 
 prebuildopts = ' cat make.inc && '
