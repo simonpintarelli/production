@@ -7,6 +7,7 @@
  CMake-3.10.1.eb
  CP2K-5.0r18043-CrayGNU-17.08.eb                    --set-default-module
  CDO-1.9.0-CrayGNU-17.08.eb                         --set-default-module
+ CDO-1.9.0-CrayIntel-17.08.eb
  CPMD-4.1-CrayIntel-17.08.eb                        --set-default-module
  ddt-7.1.eb                                         
  ddt-18.0.1.eb                                      --set-default-module
@@ -34,6 +35,7 @@
  ncview-2.1.7-CrayGNU-17.08.eb                      --set-default-module
  netcdf-python-1.2.9-CrayGNU-17.08-python2.eb
  netcdf-python-1.2.9-CrayGNU-17.08-python3.eb       --set-default-module
+ otfprofile-1.20.eb                                 --set-default-module
  papi-wrap-1.0-CrayGNU-17.08.eb                     --set-default-module
  papi-wrap-1.0-CrayCCE-17.08.eb
  papi-wrap-1.0-CrayIntel-17.08.eb

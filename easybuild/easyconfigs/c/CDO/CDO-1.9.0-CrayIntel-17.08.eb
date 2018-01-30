@@ -8,7 +8,7 @@ homepage = 'https://code.zmaw.de/projects/cdo'
 description = """CDO is a collection of command line Operators to manipulate
 and analyse Climate and NWP model Data."""
 
-toolchain = {'name': 'CrayGNU', 'version': '17.08'}
+toolchain = {'name': 'CrayIntel', 'version': '17.08'}
 toolchainopts = {'opt': True, 'pic': True}
 
 # Files visible at https://code.mpimet.mpg.de/projects/cdo/files, 

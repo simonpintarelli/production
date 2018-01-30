@@ -8,6 +8,7 @@
  CMake-3.10.1.eb
  CP2K-5.0r18043-CrayGNU-17.08-cuda-8.0.eb           --set-default-module
  CDO-1.9.0-CrayGNU-17.08.eb                         --set-default-module
+ CDO-1.9.0-CrayIntel-17.08.eb
  CPMD-4.1-CrayIntel-17.08.eb                        --set-default-module
  ddt-7.1.eb                                         
  ddt-18.0.1.eb                                      --set-default-module
@@ -36,6 +37,7 @@
  ncview-2.1.7-CrayGNU-17.08.eb                      --set-default-module
  netcdf-python-1.2.9-CrayGNU-17.08-python2.eb
  netcdf-python-1.2.9-CrayGNU-17.08-python3.eb       --set-default-module
+ otfprofile-1.20.eb                                 --set-default-module
  papi-wrap-1.0-CrayGNU-17.08.eb                     --set-default-module
  papi-wrap-1.0-CrayCCE-17.08.eb
  papi-wrap-1.0-CrayIntel-17.08.eb
@@ -58,14 +60,14 @@
  Score-P-3.1-CrayIntel-17.08.eb
  Score-P-3.1-CrayPGI-17.08.eb
  Spark-1.6.0.eb                                     --set-default-module
- TensorFlow-1.2.1-CrayGNU-17.08-cuda-8.0-python3.eb	--set-default-module
- TensorFlow-1.3.0-CrayGNU-17.08-cuda-8.0-python3.eb
+ TensorFlow-1.3.0-CrayGNU-17.08-cuda-8.0-python3.eb --set-default-module
+ TensorFlow-1.4.1-CrayGNU-17.08-cuda-8.0-python3.eb
  Understand-4.0.913.eb                              --set-default-module --hidden
  vampir-9.4.0.eb                                    --set-default-module
  VASP-5.4.4-CrayIntel-17.08-cuda-8.0.eb             --set-default-module
  VMD-1.9.3-egl.eb
  VMD-1.9.3-ogl.eb
- VTK-8.0.1-CrayGNU-17.08-python2.eb
- VTK-8.0.1-CrayGNU-17.08-python3.eb                 --set-default-module
- VTK-8.0.1-EGL-CrayGNU-17.08-python2.eb
- VTK-8.0.1-EGL-CrayGNU-17.08-python3.eb             --set-default-module
+ VTK-8.1.0-CrayGNU-17.08-python2.eb
+ VTK-8.1.0-CrayGNU-17.08-python3.eb                 --set-default-module
+ VTK-8.1.0-EGL-CrayGNU-17.08-python2.eb
+ VTK-8.1.0-EGL-CrayGNU-17.08-python3.eb             --set-default-module
