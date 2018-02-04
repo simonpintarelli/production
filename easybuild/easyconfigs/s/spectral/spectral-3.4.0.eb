@@ -1,0 +1,20 @@
+easyblock = "Tarball"
+
+name = 'spectral'
+version = '3.4.0'
+
+homepage = 'https://tools.bsc.es/downloads'
+description = """Combined instrumentation and sampling for instantaneous metric
+evolution with low overhead."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+source_urls = ['https://ftp.tools.bsc.es/%(name)s']
+sources = ['%(name)s-%(version)s-Linux_x86_64.tar.bz2']
+checksums = ['6ffdccdc3055033e4336345e132504cb']
+
+sanity_check_paths={
+    'files': ['bin/trace-analysis'],
+    'dirs': ['include', 'lib64']
+}
+
+moduleclass = 'perf'

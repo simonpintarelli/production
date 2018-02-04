@@ -1,0 +1,20 @@
+easyblock = "Tarball"
+
+name = 'basicanalysis'
+version = '0.3.1'
+
+homepage = 'https://tools.bsc.es/downloads'
+description = """Framework for automatic extraction of fundamental factors for
+Paraver traces."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+source_urls = ['https://ftp.tools.bsc.es/%(name)s']
+sources = ['%(name)s-%(version)s-src.tar.bz2']
+checksums = ['be454e266b94cb047da1686f63ae73d2']
+
+sanity_check_paths={
+    'files': ['modelfactors.py'],
+    'dirs': ['cfgs']
+}
+
+moduleclass = 'perf'

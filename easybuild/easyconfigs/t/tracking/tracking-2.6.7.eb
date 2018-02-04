@@ -1,0 +1,21 @@
+easyblock = "Tarball"
+
+name = 'tracking'
+version = '2.6.7'
+
+homepage = 'https://tools.bsc.es/downloads'
+description = """Analyze how the behavior of a parallel application evolves
+through different scenarios."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+source_urls = ['https://ftp.tools.bsc.es/%(name)s']
+sources = ['tracking-%(version)s-Linux_x86_64.tar.bz2']
+checksums = ['ecac721ae24cb8209a70c413e84441af']
+#dependencies = [('java/jdk1.8.0_51', EXTERNAL_MODULE),]
+
+sanity_check_paths={
+    'files': ['bin/xtrack'],
+    'dirs': ['include', 'lib64']
+}
+
+moduleclass = 'perf'
