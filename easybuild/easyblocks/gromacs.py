@@ -154,7 +154,7 @@ class EB_GROMACS(CMakeMake):
                 self.cfg.update('configopts', "-DGMX_DOUBLE=ON")
 
             # always specify to use external BLAS/LAPACK
-            self.cfg.update('configopts', "-DGMX_EXTERNAL_BLAS=ON -DGMX_EXTERNAL_LAPACK=ON")
+            #self.cfg.update('configopts', "-DGMX_EXTERNAL_BLAS=ON -DGMX_EXTERNAL_LAPACK=ON")
 
             # disable GUI tools
             self.cfg.update('configopts', "-DGMX_X11=OFF")
@@ -193,15 +193,15 @@ class EB_GROMACS(CMakeMake):
                     libdir = os.getenv('%s_LIB_DIR' % libname)
                     if self.toolchain.toolchain_family() == toolchain.CRAYPE:
                         libsci_mpi_mp_lib = glob.glob(os.path.join(libdir, 'libsci_*_mpi_mp.a'))
-                        if libsci_mpi_mp_lib:
-                            self.cfg.update('configopts', '-DGMX_%s_USER=%s' % (libname, libsci_mpi_mp_lib[0]))
-                        else:
-                            raise EasyBuildError("Failed to find libsci library to link with for %s", libname)
+                        #if libsci_mpi_mp_lib:
+                            #self.cfg.update('configopts', '-DGMX_%s_USER=%s' % (libname, libsci_mpi_mp_lib[0]))
+                        #else:
+                        #    raise EasyBuildError("Failed to find libsci library to link with for %s", libname)
                     else:
                         # -DGMX_BLAS_USER & -DGMX_LAPACK_USER require full path to library
                         libs = os.getenv('%s_STATIC_LIBS' % libname).split(',')
                         libpaths = [os.path.join(libdir, lib) for lib in libs if lib != 'libgfortran.a']
-                        self.cfg.update('configopts', '-DGMX_%s_USER="%s"' % (libname, ';'.join(libpaths)))
+                        #self.cfg.update('configopts', '-DGMX_%s_USER="%s"' % (libname, ';'.join(libpaths)))
                         # if libgfortran.a is listed, make sure it gets linked in too to avoiding linking issues
                         if 'libgfortran.a' in libs:
                             env.setvar('LDFLAGS', "%s -lgfortran -lm" % os.environ.get('LDFLAGS', ''))
@@ -230,9 +230,9 @@ class EB_GROMACS(CMakeMake):
             # for recent GROMACS versions, make very sure that a decent BLAS, LAPACK and FFT is found and used
             if LooseVersion(self.version) >= LooseVersion('4.6.5'):
                 patterns = [
-                    r"Using external FFT library - \S*",
-                    r"Looking for dgemm_ - found",
-                    r"Looking for cheev_ - found",
+                    #r"Using external FFT library - \S*",
+                    #r"Looking for dgemm_ - found",
+                    #r"Looking for cheev_ - found",
                 ]
                 for pattern in patterns:
                     regex = re.compile(pattern, re.M)

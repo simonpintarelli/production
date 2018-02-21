@@ -16,8 +16,8 @@ configopts = [
 --enable-rdma-cm \
 --enable-smpcoll \
 --disable-xrc \
---with-device=ch3:mrail \
---enable-mcast \
+--disable-mcast \
+--disable-rdma-cm \
 --enable-g=dbg \
 --enable-debuginfo \
 --with-cluster-size=level"
