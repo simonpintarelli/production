@@ -1,4 +1,4 @@
-# jgp (CSCS)
+# Contributed by Luca Marsella and Jean-Guillaume Piccinali (CSCS)
 easyblock = 'ConfigureMake'
 
 name = 'Bison'
@@ -13,8 +13,7 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = [GNU_SOURCE]
 
-#builddependencies = [('M4', '1.4.17')]
-dependencies = [('M4', '1.4.17')]
+dependencies = [('M4', '1.4.18')]
 
 sanity_check_paths = {
     'files': ["bin/%s" % x for x in ["bison", "yacc"]] + ["lib/liby.a"],
