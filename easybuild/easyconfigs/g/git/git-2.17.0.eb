@@ -1,3 +1,4 @@
+# contributed by Luca Marsella (CSCS)
 easyblock = 'ConfigureMake'
 
 name = 'git'
@@ -13,12 +14,12 @@ toolchain = {'name': 'dummy', 'version': ''}
 source_urls = ['https://github.com/git/git/archive']
 sources = ['v%(version)s.tar.gz']
 
-#dependencies = [
-#    ('cURL', '7.47.0'),
-#    ('expat', '2.1.0'),
+dependencies = [
+    ('cURL', '7.59.0'),
+    ('expat', '2.2.5'),
 #    ('gettext', '0.19.7'),
 #    ('Perl', '5.22.1', '-bare'),
-#]
+]
 
 preconfigopts = 'make configure && '
 
