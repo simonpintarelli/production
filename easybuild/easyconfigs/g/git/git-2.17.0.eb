@@ -17,8 +17,8 @@ sources = ['v%(version)s.tar.gz']
 dependencies = [
     ('cURL', '7.59.0'),
     ('expat', '2.2.5'),
-#    ('gettext', '0.19.7'),
-#    ('Perl', '5.22.1', '-bare'),
+    ('gettext', '0.19.8'),
+    ('Perl', '5.26.1', '-bare'),
 ]
 
 preconfigopts = 'make configure && '
