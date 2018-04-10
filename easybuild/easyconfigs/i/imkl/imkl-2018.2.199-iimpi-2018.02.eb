@@ -1,0 +1,35 @@
+# contributed by Luca marsella (CSCS)
+name = 'imkl'
+version = '2018.2.199'
+
+homepage = 'http://software.intel.com/en-us/intel-mkl/'
+description = """Intel Math Kernel Library is a library of highly optimized,
+ extensively threaded math routines for science, engineering, and financial
+ applications that require maximum performance. Core math functions include
+ BLAS, LAPACK, ScaLAPACK, Sparse Solvers, Fast Fourier Transforms, Vector Math, and more."""
+
+toolchain = {'name': 'iimpi', 'version': '2018.02'}
+
+sources = ['i/intel/parallel_studio_xe_2018_update2_cluster_edition.tgz']
+
+license_activation = 'exist_lic'
+license_file = '/opt/intel/licenses/l_2868.lic'
+
+dontcreateinstalldir = 'True'
+
+interfaces = True
+
+postinstallcmds = [
+    # extract the examples
+    'tar xvzf %(installdir)s/mkl/examples/examples_cluster_c.tgz -C %(installdir)s/mkl/examples/',
+    'tar xvzf %(installdir)s/mkl/examples/examples_cluster_f.tgz -C %(installdir)s/mkl/examples/',
+    'tar xvzf %(installdir)s/mkl/examples/examples_core_c.tgz -C %(installdir)s/mkl/examples/',
+    'tar xvzf %(installdir)s/mkl/examples/examples_core_f.tgz -C %(installdir)s/mkl/examples/',
+    'tar xvzf %(installdir)s/mkl/examples/examples_f95.tgz -C %(installdir)s/mkl/examples/',
+]
+
+modextravars = {
+    'MKL_EXAMPLES': '%(installdir)s/mkl/examples/',
+}
+
+moduleclass = 'numlib'

@@ -1,0 +1,18 @@
+# contributed by Luca Marsella (CSCS)
+easyblock = 'Toolchain'
+
+name = 'iccifort'
+version = '2018.2.199'
+versionsuffix = '-GCC-7.3.0-2.30'
+
+homepage = 'http://software.intel.com/en-us/intel-cluster-toolkit-compiler/'
+description = "Intel C, C++ & Fortran compilers"
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+dependencies = [
+    ('icc', version, versionsuffix),
+    ('ifort', version, versionsuffix),
+]
+
+moduleclass = 'toolchain'

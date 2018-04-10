@@ -1,0 +1,30 @@
+# contributed by Luca Marsella (CSCS)
+name = 'ifort'
+version = '2018.2.199'
+
+homepage = 'http://software.intel.com/en-us/intel-compilers/'
+description = "Intel C and C++ compilers"
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['i/intel/parallel_studio_xe_2018_update2_cluster_edition.tgz']
+
+gccver = '7.3.0'
+binutilsver = '2.30'
+versionsuffix = '-GCC-%s-%s' % (gccver, binutilsver)
+
+dependencies = [
+    ('GCCcore', gccver),
+    ('binutils', binutilsver, '', ('GCCcore', gccver)),
+]
+
+# list of regex for components to install
+# full list of components can be obtained from pset/mediaconfig.xml in unpacked sources
+# cfr. https://software.intel.com/en-us/articles/intel-composer-xe-2015-silent-installation-guide
+components = ['intel-comp', 'intel-fcomp', 'intel-ifort', 'intel-openmp', 'intel-ipsf?_', 'intel-gdb(?!.*mic)']
+
+dontcreateinstalldir = 'True'
+
+license_file = '/opt/intel/licenses/l_2868.lic'
+
+moduleclass = 'compiler'
