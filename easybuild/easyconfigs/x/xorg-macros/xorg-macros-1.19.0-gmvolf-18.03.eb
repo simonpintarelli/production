@@ -14,7 +14,7 @@ sources = ['util-macros-%(version)s.tar.gz']
 
 builddependencies = [
     # use same binutils version that was used when building GCC toolchain
-    ('binutils', '2.30', '', True),
+    ('binutils', '2.30'),
     ('Autotools', '201602'),
 ]
 
