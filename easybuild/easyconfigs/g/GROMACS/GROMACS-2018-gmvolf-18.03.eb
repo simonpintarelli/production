@@ -24,7 +24,7 @@ toolchainopts = {'usempi': 'True', 'openmp': 'True', 'verbose': 'True'}
 source_urls = ['ftp://ftp.gromacs.org/pub/gromacs/']
 sources = [SOURCELOWER_TAR_GZ]
 
-configopts = ' -DCMAKE_C_FLAGS="-g -fPIC" -DCMAKE_CXX_FLAGS="-g -fPIC" '
+#configopts = ' -DCMAKE_C_FLAGS="-g -fPIC" -DCMAKE_CXX_FLAGS="-g -fPIC" '
 
 skipsteps = ['test']
 
