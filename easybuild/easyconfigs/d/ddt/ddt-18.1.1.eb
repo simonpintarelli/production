@@ -16,6 +16,11 @@ modtclfooter = """
 conflict darshan
 conflict Cube
 
+set url          "http://www.allinea.com"
+set url2         "http://user.cscs.ch"
+set modulename   "ddt"
+set version      "18.1.1"
+
 # ===============================================================
 # Which os/system is it ?
 # ===============================================================
@@ -57,6 +62,7 @@ if { ${OS_ID}=="sles" } {
     } else {
         set osv "11"
     }
+    set packageroot  "/apps/common/UES/${ost}${osv}/${modulename}/${version}"
 }
 
 if { ${OS_ID}=="rhel" } {
@@ -66,18 +72,21 @@ if { ${OS_ID}=="rhel" } {
     } else {
         set osv "6"
     }
+    set packageroot  "/apps/common/UES/${ost}${osv}/${modulename}/${version}"
+}
+
+if { ${OS_ID}=="centos" } {
+    set ost "RHAT"
+    set osv "7"
+    set packageroot  "/shared/apps/UES/${modulename}/${version}"
 }
 
 if { ${OS_ID}=="generic" } {
     set ost "RHAT"
     set osv "6"
+    set packageroot  "/apps/common/UES/${ost}${osv}/${modulename}/${version}"
 }
 
-set     url          "http://www.allinea.com"
-set     url2         "http://user.cscs.ch"
-set     modulename   "ddt"
-set     version      "18.1.1"
-set     packageroot  "/apps/common/UES/${ost}${osv}/${modulename}/${version}"
 
 # ===============================================================
 #if { [ module-info mode load ] } {
@@ -90,6 +99,7 @@ set     packageroot  "/apps/common/UES/${ost}${osv}/${modulename}/${version}"
         prepend-path    MODULEPATH            "$packageroot/share/modules/cray"
         append-path     PE_PRODUCT_LIST       "DDT"
         setenv          ALLINEA_LICENCE_DIR   "/apps/common/UES/licensesCSCS/ddt"
+        append-path     ALLINEA_LICENCE_DIR   "/shared/apps/UES/licensesCSCS/ddt"
         #setenv          DDT_LICENSE_FILE      "/apps/common/UES/licensesCSCS/map/Licence"
         setenv          CRAY_ACC_NO_EARLY_INIT "1"
         setenv          ALLINEA_MPIRUN        "srun"

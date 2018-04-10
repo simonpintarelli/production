@@ -1,0 +1,19 @@
+easyblock = "Toolchain"
+
+name = 'gompi'
+version = '18.03'
+
+homepage = '(none)'
+description = """GNU Compiler Collection (GCC) based compiler toolchain,
+including OpenMPI for MPI support."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+gccver = '7.3.0'
+binutilsver = '2.30'
+dependencies = [
+    ('GCC', gccver, '-%s' % binutilsver),
+    ('OpenMPI', '3.0.1', '', ('GCC', '%s-%s' % (gccver, binutilsver))),
+]
+
+moduleclass = 'toolchain'
