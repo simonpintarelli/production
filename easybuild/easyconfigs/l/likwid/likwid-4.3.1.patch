@@ -1,0 +1,40 @@
+diff -Naur likwid-4.3.1.orig/config.mk likwid-4.3.1/config.mk
+--- likwid-4.3.1.orig/config.mk	2018-01-05 09:54:28.000000000 +0000
++++ likwid-4.3.1/config.mk	2018-04-09 13:37:40.354117097 +0000
+@@ -10,7 +10,7 @@
+ COMPILER = GCC#NO SPACE
+ 
+ # Path were to install likwid
+-PREFIX = /usr/local
++#PREFIX = /usr/local
+ 
+ # Set the default mode for MSR access.
+ # This can usually be overriden on the commandline.
+@@ -62,12 +62,12 @@
+ BUILDDAEMON = true#NO SPACE
+ # Build the setFrequencies daemon to allow users setting the CPU and Uncore
+ # frequency
+-BUILDFREQ = true#NO SPACE
++BUILDFREQ = false#NO SPACE
+ 
+ # chown installed tools to this user/group
+ # if you change anything here, make sure that the user/group can access
+ # the MSR devices and (on Intel) the PCI devices.
+-INSTALL_CHOWN = -g root -o root#NO SPACE
++INSTALL_CHOWN =
+ 
+ # uncomment to optionally set external lua@5.2 or lua@5.3:
+ # default is use internally provide lua
+@@ -92,10 +92,10 @@
+ 
+ # Paths to some configuration files that can be used to overwrite some
+ # array lengths defined at compilation
+-CFG_FILE_PATH = /etc/likwid.cfg
++CFG_FILE_PATH = $(PREFIX)/etc/likwid.cfg
+ # With the likwid-genTopoCfg it is possible to store the topology of a system
+ # in a file to avoid re-reading all topology informations again
+-TOPO_FILE_PATH = /etc/likwid_topo.cfg
++TOPO_FILE_PATH = $(PREFIX)/etc/likwid_topo.cfg
+ 
+ # Versioning Information
+ # The libraries are named liblikwid.<VERSION>.<RELEASE>
