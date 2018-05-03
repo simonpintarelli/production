@@ -1,6 +1,6 @@
 # contributed by Luca marsella (CSCS)
 name = 'MVAPICH2'
-version = '2.3rc1'
+version = '2.3rc2'
 
 homepage = 'http://mvapich.cse.ohio-state.edu/overview/mvapich2/'
 description = """OSU MVAPICH2 2.3rc1 (02/19/18), integrated and ABI compatible with MPICH-3.2"""
