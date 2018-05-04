@@ -14,6 +14,7 @@ that can be reused by all projects that is as future proof as possible,
 while keeping it easy to use for simple need/quick test."""
 
 toolchain = {'name': 'CrayGNU', 'version': '17.08'}
+toolchainopts = {'pic': True, 'verbose': False}
 
 source_urls = ['https://github.com/Theano/libgpuarray/archive/']
 sources = ['v%(version)s.tar.gz']
@@ -34,11 +35,11 @@ postinstallcmds = [
     'export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$CRAY_CUDATOOLKIT_DIR/include:%(installdir)s/include',
     'export LIBRARY_PATH=$LIBRARY_PATH:%(installdir)s/lib',
     'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:%(installdir)s/lib',
-    'python3 setup.py build_ext -L %(installdir)s/lib -I %(installdir)s/include',
-    'PYTHONUSERBASE=%(installdir)s; python3 setup.py install --user'
+    "python3 setup.py build_ext -L %(installdir)s/lib -I %(installdir)s/include",
+    "PYTHONUSERBASE=%(installdir)s python3 setup.py install --user"
 ]
 
-exts_filter = ('python -c "import pygpu"', "")
+exts_filter = ('python3 -c "import pygpu"', "")
 
 sanity_check_paths = {
     'files': ['include/gpuarray/array.h'],
@@ -46,7 +47,7 @@ sanity_check_paths = {
 }
 
 modextrapaths = {
-    'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages',
+    'PYTHONPATH': 'lib/python%s.%s/site-packages' % (req_py_majver, req_py_minver),
 }
 
 skipsteps = ['test']
