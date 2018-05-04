@@ -1,0 +1,16 @@
+# contributed by Luca Marsella (CSCS)
+# modules: gmvolf Python Libint libxc flex Bison
+CC       = gcc
+CPP      = 
+FC       = gfortran
+LD       = mpifort
+AR       = ar -r
+CPPFLAGS =
+DFLAGS   = -D__FFTW3 -D__parallel -D__SCALAPACK -D__FFTSG -D__LIBINT -D__LIBXC -D__GFORTRAN
+CFLAGS   = $(DFLAGS)
+FCFLAGS  = $(DFLAGS) -O3 -mavx -fopenmp -funroll-loops -ffast-math -ftree-vectorize -ffree-form -ffree-line-length-512 
+FCFLAGS  += -I$(EBROOTLIBINT)/include -I$(EBROOTLIBXC)/include
+LDFLAGS  = $(FCFLAGS)
+LIBS   	 = -lfftw3 -lfftw3_threads 
+LIBS     += $(EBROOTLIBINT)/lib/libderiv.a $(EBROOTLIBINT)/lib/libint.a $(EBROOTLIBINT)/lib/libr12.a -lstdc++ 
+LIBS     += -L$(EBROOTLIBXC)/lib -lxcf90 -lxc 
