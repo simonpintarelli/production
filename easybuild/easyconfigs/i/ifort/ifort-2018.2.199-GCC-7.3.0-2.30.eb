@@ -25,6 +25,6 @@ components = ['intel-comp', 'intel-fcomp', 'intel-ifort', 'intel-openmp', 'intel
 
 dontcreateinstalldir = 'True'
 
-license_file = '/opt/intel/licenses/l_2868.lic'
+license_file = '/apps/UES/licensesCSCS/intel/velan.lic'
 
 moduleclass = 'compiler'

@@ -15,7 +15,7 @@ dontcreateinstalldir = 'True'
 
 components = ['intel-mpi', 'intel-psxe', 'intel-imb']
 
-license_file = '/opt/intel/licenses/l_2868.lic'
+license_file = '/apps/UES/licensesCSCS/intel/velan.lic'
 
 # set up all the mpi commands to default to intel compilers
 # set_mpi_wrappers_all = 'True'

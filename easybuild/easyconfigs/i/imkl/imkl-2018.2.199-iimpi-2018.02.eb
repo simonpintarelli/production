@@ -13,7 +13,7 @@ toolchain = {'name': 'iimpi', 'version': '2018.02'}
 sources = ['i/intel/parallel_studio_xe_2018_update2_cluster_edition.tgz']
 
 license_activation = 'exist_lic'
-license_file = '/opt/intel/licenses/l_2868.lic'
+license_file = '/apps/UES/licensesCSCS/intel/velan.lic'
 
 dontcreateinstalldir = 'True'
 
