@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'OpenMPI'
+version = '3.0.1'
+
+homepage = 'http://www.open-mpi.org/'
+description = """The Open MPI Project is an open source MPI-3 implementation."""
+
+toolchain = {'name': 'GCC', 'version': '7.3.0-2.30'}
+source_urls = ['http://www.open-mpi.org/software/ompi/v%(version_major_minor)s/downloads']
+sources = [SOURCELOWER_TAR_GZ]
+checksums = ['7e4a7d4376f717e12f5abdc3e17ef5f5']
+
+# needed for --with-verbs
+osdependencies = [('libibverbs-utils', 'rdma-core-devel', 'hwloc-devel')]
+
+#dependencies = [
+#    #('zlib', '1.2.11'),
+#    ('hwloc/2.0.1', EXTERNAL_MODULE)
+#]
+
+configopts = '--enable-shared --enable-mpi-thread-multiple --with-verbs '
+configopts += '--enable-mpirun-prefix-by-default '  # suppress failure modes in relation to mpirun path
+#configopts += '--with-hwloc=$EBROOTHWLOC '          # hwloc support
+configopts += '--without-ucx '                      # hard disable UCX, to dance around bug (https://github.com/open-mpi/ompi/issues/4345)
+configopts += '--with-slurm --with-pmi=/opt/slurm/default/ --with-pmi-libdir=/opt/slurm/default/lib' # enable slurm integration
+
+libs = ["mpi_mpifh", "mpi", "ompitrace", "open-pal", "open-rte"]
+sanity_check_paths = {
+    'files': ["bin/%s" % binfile for binfile in ["ompi_info", "opal_wrapper", "orterun"]] +
+             ["lib/lib%s.%s" % (libfile, SHLIB_EXT) for libfile in libs] +
+             ["include/%s.h" % x for x in ["mpi-ext", "mpif-config", "mpif", "mpi", "mpi_portable_platform"]],
+    'dirs': [],
+}
+
+moduleclass = 'mpi'
