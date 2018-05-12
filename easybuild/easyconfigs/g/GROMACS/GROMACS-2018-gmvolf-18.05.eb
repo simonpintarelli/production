@@ -32,6 +32,7 @@ skipsteps = ['test']
 builddependencies = [
     ('CMake', '3.11.0', '', True),
     ('libxml2', '2.9.8'),
+    ('FFTW', '3.3.7'),
 ]
 
 moduleclass = 'bio'
