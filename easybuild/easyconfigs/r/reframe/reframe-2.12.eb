@@ -19,12 +19,12 @@ dependencies = [('Python-bare', '3.6.5')]
 keepsymlinks = True
 postinstallcmds = [
     'cp %(installdir)s/config/cscs.py %(installdir)s/reframe/settings.py',
-    'git clone --branch v%(version)s git@github.com:eth-cscs/reframe-tests.git',
-    'cp -r reframe-tests/checks %(installdir)s/cscs-checks/private',
+    #'git clone --branch v%(version)s git@github.com:eth-cscs/reframe-tests.git',
+    #'cp -r reframe-tests/checks %(installdir)s/cscs-checks/private',
     'mv %(installdir)s/cscs-checks %(installdir)s/checks'
 ]
 sanity_check_paths = {
     'files': ['reframe.py', 'bin/reframe', 'config/cscs.py'],
-    'dirs':  ['bin', 'checks', 'checks/private', 'unittests'],
+    'dirs':  ['checks',  'unittests'],
 }
 moduleclass = 'devel'
