@@ -1,0 +1,41 @@
+# Contributed by Luca Marsella and Victor Holanda Rusu (CSCS)
+easyblock = 'CMakeMake'
+
+name = 'HOOMD'
+version = '2.2.3'
+
+homepage = 'http://glotzerlab.engin.umich.edu/hoomd-blue/index.html'
+description = "HOOMD-blue is a general-purpose particle simulation toolkit. It scales from a single CPU core to thousands of GPUs."
+
+
+toolchain = {'name': 'gmvolf', 'version': '18.05'}
+toolchainopts = { 'usempi': True, 'openmp': True }
+
+source_urls = ['http://glotzerlab.engin.umich.edu/Downloads/hoomd/']
+sources = ['%(namelower)s-v%(version)s.tar.gz']
+
+configopts = "-DENABLE_MPI=ON"
+
+#buildopts = [ ' install ' ]
+
+builddependencies = [
+    ('CMake', '3.11.0', '', True),
+]
+
+dependencies = [
+    ('FFTW', '3.3.7'),
+    ('Python', '3.6.5'),
+]
+
+separate_build_dir = True
+
+modextrapaths = {
+    'PYTHONPATH' : '',
+}
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['hoomd'],
+}
+
+moduleclass = 'chem'
