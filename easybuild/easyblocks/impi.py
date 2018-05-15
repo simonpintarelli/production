@@ -73,16 +73,18 @@ class EB_impi(IntelBase):
         - execute command
         """
 
-#        if self.cfg['license_activation']:
-#            silent_cfg_extras = {
-#                'ACTIVATION_TYPE': '%s' % self.cfg['license_activation'],
-#            }   
+        silent_cfg_names_map = None
+        silent_cfg_extras = None
 
         impiver = LooseVersion(self.version)
         if impiver >= LooseVersion('4.0.1'):
             # impi starting from version 4.0.1.x uses standard installation procedure.
 
             silent_cfg_names_map = {}
+            if self.cfg['license_activation']:
+                silent_cfg_extras = {
+                    'ACTIVATION_TYPE': '%s' % self.cfg['license_activation'],
+                }   
 
             if impiver < LooseVersion('4.1.1'):
                 # since impi v4.1.1, silent.cfg has been slightly changed to be 'more standard'
@@ -91,7 +93,7 @@ class EB_impi(IntelBase):
                     'license_file_name': LICENSE_FILE_NAME_2012,
                 })
 
-            super(EB_impi, self).install_step(silent_cfg_names_map=silent_cfg_names_map)
+            super(EB_impi, self).install_step(silent_cfg_names_map=silent_cfg_names_map, silent_cfg_extras=silent_cfg_extras)
 
             # impi v4.1.1 and v5.0.1 installers create impi/<version> subdir, so stuff needs to be moved afterwards
             if impiver == LooseVersion('4.1.1.036') or impiver >= LooseVersion('5.0.1.035'):

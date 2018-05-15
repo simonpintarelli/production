@@ -1,11 +1,9 @@
-# # contributed by Luca Marsella (CSCS)
+# contributed by Luca Marsella (CSCS)
 name = 'impi'
 version = '2018.2.199'
 
 homepage = 'http://software.intel.com/en-us/intel-mpi-library/'
-description = """The Intel(R) MPI Library for Linux* OS is a multi-fabric message
- passing library based on ANL MPICH2 and OSU MVAPICH2. The Intel MPI Library for
- Linux OS implements the Message Passing Interface, version 3.0 (MPI-3) specification."""
+description = "Intel MPI Library, compatible with MPICH ABI"
 
 toolchain = {'name': 'iccifort', 'version': '2018.2.199-GCC-7.3.0-2.30'}
 
@@ -15,10 +13,12 @@ dontcreateinstalldir = 'True'
 
 components = ['intel-mpi', 'intel-psxe', 'intel-imb']
 
+license_activation = 'exist_lic'
 license_file = '/apps/UES/licensesCSCS/intel/velan.lic'
 
 # set up all the mpi commands to default to intel compilers
-# set_mpi_wrappers_all = 'True'
+#set_mpi_wrappers_all = 'True'
+
 postinstallcmds = [
     'ln -s %(installdir)s/lib64/libmpi.so  %(installdir)s/lib64/libmpich.so',
     'ln -s %(installdir)s/lib64/libmpigc4.so  %(installdir)s/lib64/libmpichcxx.so',
