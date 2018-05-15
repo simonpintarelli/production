@@ -26,7 +26,7 @@ dependencies = [
     ('libxc', '3.0.0'),
     ('libxsmm', '1.8.2'),
     ('FFTW', '3.3.7'),
-    ('PLUMED', '2.4.1'),
+#    ('PLUMED', '2.4.1'),
 ]
 
 builddependencies = [
