@@ -5,18 +5,25 @@ CPP        =
 FC         = mpif90
 LD         = mpif90
 AR         = ar -r
-DFLAGS     = -D__FFTW3 -D__LIBINT -D__LIBXC -D__parallel -D__SCALAPACK
+FFTW_INC   = $(EBROOTFFTW)/include
+FFTW_LIB   = $(EBROOTFFTW)/lib
+LIBINT_INC = $(EBROOTLIBINT)/include
+LIBINT_LIB = $(EBROOTLIBINT)/lib
+LIBXC_INC  = $(EBROOTLIBXC)/include
+LIBXC_LIB  = $(EBROOTLIBXC)/lib
+DFLAGS     = -D__FFTW3 -D__LIBINT -D__LIBXC -D__MPI_VERSION=3\
+             -D__LIBINT_MAX_AM=7 -D__LIBDERIV_MAX_AM1=6 -D__MAX_CONTR=4\
+             -D__parallel -D__SCALAPACK
 CPPFLAGS   =
 FCFLAGS    = $(DFLAGS) -O2 -ffast-math -ffree-form -ffree-line-length-none\
              -fopenmp -ftree-vectorize -funroll-loops -mtune=native \
-             -I$(EBROOTFFTW)/include -I$(EBROOTLIBINT)/include -I$(EBROOTLIBXC)/include
+             -I$(FFTW_INC) -I$(LIBINT_INC) -I$(LIBXC_INC)
 LDFLAGS    = $(FCFLAGS)
 LIBS       = $(EBROOTSCALAPACK)/lib/libscalapack.a\
              $(EBROOTOPENBLAS)/lib/libopenblas.a\
-             $(EBROOTFFTW)/lib/libfftw3.a\
-             $(EBROOTFFTW)/lib/libfftw3_threads.a\
-             $(EBROOTLIBXC)/lib/libxcf90.a\
-             $(EBROOTLIBXC)/lib/libxc.a\
-             $(EBROOTLIBINT)/lib/libderiv.a\
-             $(EBROOTLIBINT)/lib/libint.a\
-             $(EBROOTLIBINT)/lib/libr12.a
+             $(FFTW_LIB)/libfftw3.a\
+             $(FFTW_LIB)/libfftw3_threads.a\
+             $(LIBXC_LIB)/libxcf90.a\
+             $(LIBXC_LIB)/libxc.a\
+             $(LIBINT_LIB)/libderiv.a\
+             $(LIBINT_LIB)/libint.a
