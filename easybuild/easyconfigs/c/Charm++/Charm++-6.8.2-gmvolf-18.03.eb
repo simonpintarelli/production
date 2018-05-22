@@ -9,7 +9,7 @@ description = """Charm++ is a machine independent parallel programming system.
 Programs written using this system will run unchanged on MIMD machines with or
 without a shared memory."""
 
-toolchain = {'name': 'gmvolf', 'version': '18.05'}
+toolchain = {'name': 'gmvolf', 'version': '18.03'}
 
 source_urls = ['http://charm.cs.illinois.edu/distrib/']
 sources = ['charm-%(version)s.tar.gz']
