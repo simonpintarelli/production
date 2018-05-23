@@ -3,6 +3,7 @@ easyblock = 'CmdCp'
 
 name = 'Charm++'
 version = '6.8.2'
+versionsuffix = '-mpi'
 
 homepage = 'http://charm.cs.illinois.edu/research/charm/'
 description = """Charm++ is a machine independent parallel programming system.
@@ -14,12 +15,17 @@ toolchain = {'name': 'gmvolf', 'version': '18.03'}
 source_urls = ['http://charm.cs.illinois.edu/distrib/']
 sources = ['charm-%(version)s.tar.gz']
 
+# check Charm++ documentation at http://charm.cs.illinois.edu/manuals for available targets
 charm_target = 'mpi-linux-x86_64'
-charm_option = 'smp'
-charm_install = '%s-%s' %(charm_target, charm_option)
+# space separated list of charm build options (order matters, please check charm++ build help)
+charm_options = ''
+if not charm_options:
+    charm_install = '%s' % charm_target
+else:
+    charm_install = '%s-%s' %(charm_target, charm_options.strip().replace(' ','-'))
 
 cmds_map = [(
-    'charm-%(version)s.tar.gz', './build charm++ %s %s --with-production -j8' %(charm_target, charm_option))
+    'charm-%(version)s.tar.gz', './build charm++ %s %s --with-production -j8' %(charm_target, charm_options))
 ]
 
 files_to_copy = ['%s' % charm_install] 
