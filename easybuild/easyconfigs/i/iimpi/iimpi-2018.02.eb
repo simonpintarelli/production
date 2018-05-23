@@ -1,0 +1,20 @@
+# contributed by Luca Marsella (CSCS)
+easyblock = 'Toolchain'
+
+name = 'iimpi'
+version = '2018.02'
+
+homepage = 'http://software.intel.com/en-us/intel-cluster-toolkit-compiler/'
+description = """Intel C/C++ and Fortran compilers, alongside Intel MPI."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+compver = '2018.2.199'
+suff = '-GCC-7.3.0-2.30'
+dependencies = [
+    ('icc', compver, suff),
+    ('ifort', compver, suff),
+    ('impi', compver, '', ('iccifort', '%s%s' % (compver, suff))),
+]
+
+moduleclass = 'toolchain'
