@@ -1,0 +1,20 @@
+# contributed by Luca Marsella (CSCS)
+easyblock = 'Toolchain'
+
+name = 'imvapich2'
+version = '2018.02'
+
+homepage = 'http://software.intel.com/en-us/intel-cluster-toolkit-compiler/'
+description = """Intel C/C++ and Fortran compilers, alongside MVAPICH2 for MPI support."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+compver = '2018.2.199'
+gccsuff = '-GCC-7.3.0-2.30'
+dependencies = [
+    ('icc', compver, gccsuff),
+    ('ifort', compver, gccsuff),
+    ('MVAPICH2', '2.3rc2', '', ('iccifort', '%s%s' % (compver, gccsuff))),
+]
+
+moduleclass = 'toolchain'
