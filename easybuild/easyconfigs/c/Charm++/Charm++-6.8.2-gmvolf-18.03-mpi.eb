@@ -17,7 +17,7 @@ sources = ['charm-%(version)s.tar.gz']
 
 # check Charm++ documentation at http://charm.cs.illinois.edu/manuals for available targets
 charm_target = 'mpi-linux-x86_64'
-# space separated list of charm build options (order matters, please check charm++ build help)
+# space separated list of charm build options (order matters, please check build help)
 charm_options = ''
 if not charm_options:
     charm_install = '%s' % charm_target
