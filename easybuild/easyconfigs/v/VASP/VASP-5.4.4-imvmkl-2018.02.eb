@@ -12,8 +12,8 @@ toolchainopts = { 'usempi': True }
 
 sources = [SOURCELOWER_TAR_BZ2]
 
-# copy makefile.include
-prebuildopts = 'cp arch/makefile.include.linux_intel ./makefile.include && '
+# correct MVAPICH2 wrapper in makefile.include
+prebuildopts = 'sed "s/mpiifort/mpif90/" arch/makefile.include.linux_intel > ./makefile.include && '
 # unset LIBS (VASP uses LIBS as a list of folders)
 prebuildopts += 'unset LIBS && '
 
