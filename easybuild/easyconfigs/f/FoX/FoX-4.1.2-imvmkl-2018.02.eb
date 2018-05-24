@@ -1,0 +1,53 @@
+# Built with EasyBuild version 3.6.0 on 2018-05-23_16-45-22
+easyblock = 'ConfigureMake'
+
+name = 'FoX'
+version = '4.1.2'
+
+homepage = 'http://homepages.see.leeds.ac.uk/~earawa/FoX/'
+description = """FoX is an XML library written in Fortran 95.
+It allows software developers to read, write and modify XML documents from Fortran applications without the
+complications of dealing with multi-language development."""
+
+toolchain = {'name': 'imvmkl', 'version': '2018.02'}
+
+source_urls = ['http://homepages.see.leeds.ac.uk/~earawa/FoX/source/']
+sources = [SOURCE_TAR_GZ]
+checksums = ['3b749138229e7808d0009a97e2ac47815ad5278df6879a9cc64351a7921ba06f']
+
+sanity_check_paths = {
+    'files': ['lib/libFoX_%s.a' % x for x in ['common', 'dom', 'fsys', 'sax', 'utils', 'wcml', 'wkml', 'wxml']],
+    'dirs': ['finclude', 'lib', 'bin']
+}
+
+modextrapaths = {
+    'CPATH': ['finclude'],
+}
+
+moduleclass = 'lib'
+
+# Build statistics
+buildstats = [{
+    "build_time": 27.01,
+    "command_line": ["--allow-loaded-modules='ddt,EasyBuild-custom,EasyBuild'", "--buildpath='/dev/shm/lucamar/easybuild/stage/build'", "--containerpath='/shared/apps/UES/easybuild/containers'", '--group-writable-installdir', "--hide-deps='ANTLR,APR,APR-util,Autoconf,Automake,Autotools,Bazel,Bison,cloudpickle,CMake,Coreutils,Cube,Doxygen,Eigen,FLTK,FoX,GCCcore,GL2PS,glmnet,GLPK,GLib,GTS,GraphicsMagick,help2man,IPython,JasPer,LLVM,LOKI,Loki,LibTIFF,M4,Mako,Mesa,NASM,NASM,OPARI2,OTF2,OpenPGM,PCRE,PDT,PIL,Pillow,PROJ,PyGTS,PyQt,PyYAML,PyZMQ,Python-Xlib,Python-bare,Qhull,Qt,SCOTCH,SCons,SIONlib,SIP,SQLite,SWIG,Serf,Szip,Tcl,Tk,UDUNITS,X11,XZ,ZeroMQ,arpack-ng,backports.weakref,binutils,bokeh,byacc,bzip2,cairo,cURL,cuDNN,expat,flex,fontconfig,freetype,funcsigs,gc,gettext,gnuplot,gperf,guile,hwloc,inputproto,kbproto,libGLU,libQGLViewer,libX11,libXau,libXdmcp,libXext,libXrender,libcerf,libdrm,libevent,libffi,libgd,libiberty,libjpeg-turbo,libjpeg-turbo,libnl,libpng,libpthread-stubs,libreadline,libsodium,libtool,libunistring,libunwind,libutempter,libxcb,libxml2,libxshmfence,libyaml,make,minieigen,mock,mxml,ncurses,nettle,networkx,nose-parameterized,numactl,pixman,pkg-config,ploticus,popt,protobuf,protobuf-core,qrupdate,rdma-core,renderproto,scikit-image,scikit-learn,util-linux,Werkzeug,wheel,xcb-proto,xextproto,xorg-macros,xproto,xtrans,zlib'", "--hide-toolchains='CrayCCE,CrayGNU,CrayIntel,CrayPGI,GCCcore,gmvapich2,gmvolf,foss,gompi,iccifort,iimpi,imvapich2,intel,imvmkl'", "--include-easyblocks='/shared/home/lucamar/production/easybuild/easyblocks/*.py'", "--installpath='/shared/apps/UES/easybuild'", "--module-syntax='Tcl'", "--modules-tool='EnvironmentModulesC'", "--packagepath='/shared/apps/UES/easybuild/packages'", "--prefix='/shared/apps/UES/easybuild'", '--recursive-module-unload', "--repositorypath='/shared/apps/UES/easybuild/ebfiles_repo'", "--robot='/shared/home/lucamar/production/easybuild/easyconfigs:/shared/apps/UES/easybuild/software/EasyBuild/3.6.0/lib/python2.7/site-packages/easybuild_easyconfigs-3.6.0-py2.7.egg/easybuild/easyconfigs'", "--robot-paths='/shared/home/lucamar/production/easybuild/easyconfigs:'", "--sourcepath='/shared/apps/UES/easybuild//sources'", "--tmpdir='/dev/shm/lucamar/easybuild/stage/tmp'", "--try-toolchain='imvmkl,2018.02'", 'QuantumESPRESSO-6.2.1-intel-2018.02.eb'],
+    "core_count": 8,
+    "cpu_model": "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz",
+    "cpu_speed": 1999.998,
+    "cpu_vendor": "Intel",
+    "easybuild-easyblocks_version": "3.6.0",
+    "easybuild-framework_version": "3.6.0",
+    "gcc_version": "Using built-in specs.; COLLECT_GCC=gcc; COLLECT_LTO_WRAPPER=/shared/apps/UES/easybuild/software/GCCcore/7.3.0/libexec/gcc/x86_64-pc-linux-gnu/7.3.0/lto-wrapper; Target: x86_64-pc-linux-gnu; Configured with: ../configure --enable-languages=c,c++,fortran --enable-lto --enable-checking=release --disable-multilib --enable-shared=yes --enable-static=yes --enable-threads=posix --enable-gold=default --enable-plugins --enable-ld --with-plugin-ld=ld.gold --prefix=/shared/apps/UES/easybuild/software/GCCcore/7.3.0 --with-local-prefix=/shared/apps/UES/easybuild/software/GCCcore/7.3.0 --enable-bootstrap --with-isl=/dev/shm/lucamar/easybuild/stage/build/GCCcore/7.3.0/dummy-/gcc-7.3.0/stage2_stuff; Thread model: posix; gcc version 7.3.0 (GCC) ; ",
+    "glibc_version": "2.17",
+    "hostname": "test-login.novalocal",
+    "install_size": 7822838,
+    "modules_tool": ('EnvironmentModulesC', '/usr/local/Modules/3.2.10/bin/modulecmd', '3.2.10'),
+    "os_name": "centos linux",
+    "os_type": "Linux",
+    "os_version": "7.4.1708",
+    "platform_name": "x86_64-unknown-linux",
+    "python_version": "2.7.5 (default, Aug  4 2017, 00:39:18) ; [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]",
+    "system_gcc_path": "/shared/apps/UES/easybuild/software/GCCcore/7.3.0/bin/gcc",
+    "system_python_path": "/usr/bin/python",
+    "timestamp": 1527093922,
+    "total_memory": 32012,
+}]
