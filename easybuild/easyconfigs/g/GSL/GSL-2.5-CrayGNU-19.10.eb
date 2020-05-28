@@ -19,6 +19,8 @@ toolchainopts = {'opt': True, 'optarch': True, 'unroll': True, 'pic': True}
 source_urls = [GNU_SOURCE]
 sources = [SOURCELOWER_TAR_GZ]
 
+prebuildopts = ['module unload cray-libsci && module unload cray-libsci_acc && module unload craype-accel-nvidia60 &&']
+
 configopts = "--with-pic"
 
 sanity_check_paths={
